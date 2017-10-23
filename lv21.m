@@ -1,0 +1,12 @@
+fs=200;
+ecg=load('ecg105.txt'); 
+ecgd = detrend(ecg);
+ecgf = filter(b,a,ecgd);
+t=(0:length(ecgf)-1)/fs;
+figure(10);
+subplot(211), plot(t,ecg), grid on, xlim([0 3]);
+title('ЕКГ сигнал');
+xlabel('Час'); ylabel('Амплітуда');
+subplot(212), plot(t,ecgf), grid on, xlim([0 3]);
+title('Відфільтрований сигнал');
+xlabel('Час'); ylabel('Амплітуда');
